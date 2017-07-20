@@ -1,0 +1,26 @@
+.intro{
+  position: relative;
+  .intro-big{
+    margin-top:23px;
+    margin-bottom: 17px;
+    font-family: Gotham;
+    font-size: 55px;
+    font-weight: 200;
+    text-align: center;
+    color: #ffffff;
+  }
+  .intro-small{
+    margin:auto;
+    max-width:543px;
+    font-family: Gotham-Book;
+    font-size: 16px;
+    text-align: center;
+    color: #ffffff;
+  }
+  .logo{
+    position: relative;
+    top:0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

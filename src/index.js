@@ -1,14 +1,13 @@
 import '../src/index.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './Components/App/App.js';
+import Main from './Components/Main/main.js';
 
 class Index extends React.Component{
   render(){
     return(
       <div>
-        <h1>Hi</h1>
-        <App />
+        <Main />
       </div>
     )
   }
