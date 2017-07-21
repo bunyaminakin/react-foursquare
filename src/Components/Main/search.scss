@@ -2,7 +2,8 @@
   text-align: center;
   padding-bottom: 131px;
   padding-top: 65px;
-  #search-bar-one{
+
+  .query{
     padding: 16px 162px 15px 20px;
     font-family: Gotham;
     font-size: 14px;
@@ -12,7 +13,8 @@
     background-color: #ffffff;
     box-shadow: 0 12px 21px 0 rgba(0, 0, 0, 0.24);
   }
-  #search-bar-two{
+
+  .location{
     padding: 16px 79px 15px 20px;
     margin: 0 10px;
     font-family: Gotham;
@@ -24,6 +26,7 @@
     background-color: #ffffff;
     box-shadow: 0 12px 21px 0 rgba(0, 0, 0, 0.24);
   }
+
   button{
     border-radius: 4px;
     background-color: #ff5f5f;

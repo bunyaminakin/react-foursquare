@@ -9,9 +9,9 @@ class Main extends Component{
         return(
             <div>
             <div className="main">
-                <Intro big="Lorem ipsum sit" small="Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                <Intro title="Lorem ipsum sit" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
-                <Search barOne="I am looking for" barTwo="Istanbul"/>
+                <Search/>
             </div>
             <div>
                 <Footer/>

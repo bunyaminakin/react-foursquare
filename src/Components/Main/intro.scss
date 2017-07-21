@@ -1,6 +1,7 @@
 .intro{
   position: relative;
-  .intro-big{
+
+  .intro-title{
     margin-top:23px;
     margin-bottom: 17px;
     font-family: Gotham;
@@ -9,7 +10,8 @@
     text-align: center;
     color: #ffffff;
   }
-  .intro-small{
+
+  .intro-description{
     margin:auto;
     max-width:543px;
     font-family: Gotham-Book;
@@ -17,6 +19,7 @@
     text-align: center;
     color: #ffffff;
   }
+
   .logo{
     position: relative;
     top:0;
