@@ -1,0 +1,49 @@
+.recent-search{
+  width:290px;
+  background-color:#FFF;
+  box-shadow: 0 0 34px 0 rgba(255, 95, 95, 0.32);
+
+  .recent-search-header{
+    padding:27px 63px;
+    text-align:center;
+    color:#4a4a4a;
+    position:relative;
+    &:after{
+      content:"";
+      top:100%;
+      left:50%;
+      transform:translate(-50%,-100%);
+      right:0;
+      bottom:0px;
+      width:70px;
+      height:2px;
+      background-color:#c4c0ff;
+      position:absolute;
+    }
+  }
+
+  .recent-search-items{
+    padding:0px;
+    list-style-type:none;
+    text-align:center;
+    .recent-search-item{
+      padding:18px 88px;
+      position: relative;
+      &:after{
+        content: "";
+        width: 90%;
+        height: 1px;
+        background-color: #e4e4e4;
+        position: absolute;
+        left: 50%;
+        transform: translatex(-50%);
+        bottom: 0;
+      }
+
+      .recent-search-item-link{
+        text-decoration:none;
+        color:#9b9b9b;
+      }
+    }
+  }
+}

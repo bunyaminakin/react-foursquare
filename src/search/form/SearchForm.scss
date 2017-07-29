@@ -1,33 +1,56 @@
-.search{
+.search-form-header{
+  text-align: center;
+  background-image: url("http://unsplash.it/1800x150");
+  background:linear-gradient(to right,#1e0db4,#e44747);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 12;
+}
+.logo{
+  width: 252px;
+  vertical-align: middle;
+  margin:0 0 25px;
+}
+.search-form{
   text-align: center;
   padding-bottom: 131px;
   padding-top: 65px;
+  display: inline-block;
+  padding: 0;
 
-  .query{
-    padding: 16px 162px 15px 20px;
+  .search-form-query-bar{
     font-family: Gotham;
     font-size: 14px;
     font-weight: 500;
     color: #9b9b9b;
+    border: 0;
     border-radius: 4px;
     background-color: #ffffff;
     box-shadow: 0 12px 21px 0 rgba(0, 0, 0, 0.24);
+
+    margin:0px;
+    width: 285px;
+    padding: 15px 20px;
   }
 
-  .location{
-    padding: 16px 79px 15px 20px;
+  .search-form-location-bar{
     margin: 0 10px;
     font-family: Gotham;
     font-size: 14px;
+    border: 0;
     font-weight: 500;
     color: #9b9b9b;
     object-fit: contain;
     border-radius: 4px;
     background-color: #ffffff;
     box-shadow: 0 12px 21px 0 rgba(0, 0, 0, 0.24);
+
+    width: 156px;
+    padding: 15px 20px;
   }
 
-  button{
+  .submit-button{
     border-radius: 4px;
     background-color: #ff5f5f;
     border: 0;

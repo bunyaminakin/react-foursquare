@@ -1,5 +1,6 @@
 .intro{
   position: relative;
+  display: inline-block;
 
   .intro-title{
     margin-top:23px;
@@ -9,6 +10,8 @@
     font-weight: 200;
     text-align: center;
     color: #ffffff;
+
+    display: none;
   }
 
   .intro-description{
@@ -18,12 +21,16 @@
     font-size: 16px;
     text-align: center;
     color: #ffffff;
+
+    display: none;
   }
 
-  .logo{
+  .intro-logo{
     position: relative;
     top:0;
-    left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-25%);
+    left: 25%;
+    width: 252px;
+    height: 124px;
   }
 }
