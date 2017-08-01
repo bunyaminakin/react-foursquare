@@ -3,6 +3,9 @@ import "./recent-search-list.scss";
 import propTypes from "prop-types";
 
 class RecentSearchList extends Component {
+  static propTypes = {
+      recentSearch:propTypes.array.isRequired
+  };
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +24,6 @@ class RecentSearchList extends Component {
 
   render() {
     const recentSearchHeader = "RECENT SEARCH";
-
     return (
       <div className="recent-search">
         <h3 className="recent-search-header">{recentSearchHeader}</h3>
@@ -38,10 +40,6 @@ class RecentSearchList extends Component {
     );
   }
 }
-
-RecentSearchList.propTypes = {
-  newSearch: propTypes.func.isRequired
-};
 
 export default RecentSearchList;
 

@@ -59,8 +59,4 @@ class SearchForm extends Component {
   }
 }
 
-SearchForm.propTypes = {
-  onSubmit: propTypes.func.isRequired
-};
-
 export default SearchForm;

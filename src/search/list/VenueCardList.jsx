@@ -3,6 +3,9 @@ import "./venue-card-list.scss";
 import propTypes from "prop-types";
 
 class VenueCardList extends Component {
+  static propTypes = {
+      venues:propTypes.array.isRequired
+  }
   constructor(props) {
     super(props);
   }
@@ -74,9 +77,5 @@ class VenueCardList extends Component {
     );
   }
 }
-
-VenueCardList.propTypes = {
-  venues: propTypes.array.isRequired
-};
 
 export default VenueCardList;

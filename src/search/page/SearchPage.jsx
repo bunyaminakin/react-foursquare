@@ -5,6 +5,7 @@ import VenueCardList from "../list/VenueCardList.jsx";
 import RecentSearchList from "../list/RecentSearchList.jsx";
 import superagent from "superagent";
 import "./search-page.scss";
+import propTypes from 'prop-types';
 
 class SearchPage extends Component {
   constructor(props) {
@@ -13,9 +14,6 @@ class SearchPage extends Component {
       venues: null,
       recentSearch: []
     };
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.getVenues = this.getVenues.bind(this);
-    this.updateRecentSearch = this.updateRecentSearch.bind(this);
   }
   handleFormSubmit = (query, location) => {
     this.setState({

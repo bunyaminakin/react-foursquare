@@ -3,6 +3,14 @@ import "./intro.scss";
 import PropTypes from "prop-types";
 
 class Intro extends Component {
+    static defaultProps = {
+        title:"",
+        description:""
+    };
+    static propTypes = {
+        title: PropTypes.string,
+        description: PropTypes.string
+    };
   render() {
     return (
       <div className="intro">
@@ -13,10 +21,5 @@ class Intro extends Component {
     );
   }
 }
-
-Intro.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string
-};
 
 export default Intro;
