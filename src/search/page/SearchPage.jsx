@@ -17,8 +17,7 @@ class SearchPage extends Component {
     this.getVenues = this.getVenues.bind(this);
     this.updateRecentSearch = this.updateRecentSearch.bind(this);
   }
-  handleFormSubmit(query, location) {
-    console.log("working handleFormSubmit");
+  handleFormSubmit = (query, location) => {
     this.setState({
       query,
       location
@@ -28,12 +27,11 @@ class SearchPage extends Component {
       } else {
         this.getVenues();
         this.updateRecentSearch();
-
       }
     });
-  }
+  };
 
-  updateRecentSearch() {
+  updateRecentSearch = () => {
     const recentSearchLimit = 10;
 
     if (this.state.query !== "" && this.state.location !== "") {
@@ -56,14 +54,12 @@ class SearchPage extends Component {
       uniques.push(this.state.recentSearch[i]);
       itemsFound[stringified] = true;
     }
-    console.log(`Uniques${uniques}`);
     this.setState({
       recentSearch: uniques
     });
+  };
 
-    console.log(`Recent Search ${this.state.recentSearch}`);
-  }
-  getVenues() {
+  getVenues = () => {
     const url = "https://api.foursquare.com/v2/venues/explore";
 
     const params = {
@@ -84,15 +80,13 @@ class SearchPage extends Component {
         this.setState({
           venues: data.body.response.groups[0].items
         });
-        console.log(`Venues${this.state.venues}`);
       }, (err) => {
         console.log(`OPS ${err.message}`);
         this.setState({
           venues: []
         });
-        console.log(`Venues${this.state.venues}`);
       });
-  }
+  };
 
   render() {
     return (
@@ -102,9 +96,7 @@ class SearchPage extends Component {
         </div>
         <div className="search-page-lists">
           <div className="search-page-venue-card-list">
-            {
-              this.state.venues !== null  ? <VenueCardList venues={this.state.venues}/> : ""
-            }
+            {this.state.venues !== null  ? <VenueCardList venues={this.state.venues}/> : ""}
           </div>
           <div className="search-page-recent-search-list">
             <RecentSearchList recentSearch={this.state.recentSearch} newSearch={this.handleFormSubmit}/>

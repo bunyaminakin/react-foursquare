@@ -5,14 +5,12 @@ import propTypes from "prop-types";
 class VenueCardList extends Component {
   constructor(props) {
     super(props);
-    this.selectVenue = this.selectVenue.bind(this);
-    this.priceBar = this.priceBar.bind(this);
   }
-  selectVenue(venue, event) {
+  selectVenue = (venue, event) => {
     console.log(`selectVenue${JSON.stringify(venue)}`);
-  }
+  };
 
-  priceBar(i) {
+  priceBar = (i) => {
     const priceBars = [];
     let counter = 1;
 
@@ -24,11 +22,11 @@ class VenueCardList extends Component {
     return (
       priceBars
     );
-  }
+  };
 
   render() {
     return (
-      <div>
+      <div className="venues">
         {this.props.venues.length !== 0 ?
           (<ul className="venue-card-list">
             {this.props.venues.map((cv, i) => (
@@ -71,7 +69,7 @@ class VenueCardList extends Component {
               </li>
             ))}
           </ul>
-          ) : <h1>Aradığınız sonuca ulaşılamadı.</h1>}
+          ) : <h1 className="venue-card-list-error-msg">No Result</h1>}
       </div>
     );
   }
