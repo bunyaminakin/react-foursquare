@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "./SearchForm.scss";
+import propTypes from "prop-types";
 
 class SearchForm extends Component {
   constructor(props) {
@@ -42,15 +43,24 @@ class SearchForm extends Component {
       <div className="search-form-header">
         <img className="logo" src={require("../../../img/logo-2@2x.png")}/>
         <form className="search-form" onSubmit={this.handleSubmit}>
-          <input onChange={this.updateSearchFilters.bind(this, "query")} type="text" placeholder="I'am looking for" className="search-form-query-bar"/>
-          <input onChange={this.updateSearchFilters.bind(this, "location")} type="text" placeholder="Istanbul" className="search-form-location-bar"/>
-          <button type="submit" className="submit-button" style={ {
-            backgroundImage: `url(${require("../../../img/shape.png")})`
-          } }></button>
+          <input onChange={this.updateSearchFilters.bind(this, "query")}
+            type="text" placeholder="I'am looking for"
+            className="search-form-query-bar"/>
+          <input onChange={this.updateSearchFilters.bind(this, "location")}
+            type="text" placeholder="Istanbul"
+            className="search-form-location-bar"/>
+          <button type="submit" className="submit-button"
+            style={ {
+              backgroundImage: `url(${require("../../../img/shape.png")})`
+            } }></button>
         </form>
       </div>
     );
   }
 }
+
+SearchForm.propTypes = {
+  onSubmit: propTypes.func.isRequired
+};
 
 export default SearchForm;

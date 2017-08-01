@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "./recent-search-list.scss";
+import propTypes from "prop-types";
 
 class RecentSearchList extends Component {
   constructor(props) {
@@ -40,6 +41,9 @@ class RecentSearchList extends Component {
   }
 }
 
+RecentSearchList.propTypes = {
+  newSearch: propTypes.func.isRequired
+};
 
 export default RecentSearchList;
 

@@ -10,7 +10,7 @@ class SearchPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      venues: [],
+      venues: null,
       recentSearch: []
     };
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -56,12 +56,12 @@ class SearchPage extends Component {
       uniques.push(this.state.recentSearch[i]);
       itemsFound[stringified] = true;
     }
-    console.log("Uniques" + uniques);
+    console.log(`Uniques${uniques}`);
     this.setState({
       recentSearch: uniques
     });
 
-    console.log("Recent Search " + this.state.recentSearch);
+    console.log(`Recent Search ${this.state.recentSearch}`);
   }
   getVenues() {
     const url = "https://api.foursquare.com/v2/venues/explore";
@@ -84,8 +84,13 @@ class SearchPage extends Component {
         this.setState({
           venues: data.body.response.groups[0].items
         });
+        console.log(`Venues${this.state.venues}`);
       }, (err) => {
         console.log(`OPS ${err.message}`);
+        this.setState({
+          venues: []
+        });
+        console.log(`Venues${this.state.venues}`);
       });
   }
 
@@ -97,7 +102,9 @@ class SearchPage extends Component {
         </div>
         <div className="search-page-lists">
           <div className="search-page-venue-card-list">
-            <VenueCardList venues={this.state.venues}/>
+            {
+              this.state.venues !== null  ? <VenueCardList venues={this.state.venues}/> : ""
+            }
           </div>
           <div className="search-page-recent-search-list">
             <RecentSearchList recentSearch={this.state.recentSearch} newSearch={this.handleFormSubmit}/>

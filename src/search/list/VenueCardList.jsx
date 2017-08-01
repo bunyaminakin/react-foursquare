@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "./venue-card-list.scss";
+import propTypes from "prop-types";
 
 class VenueCardList extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class VenueCardList extends Component {
   render() {
     return (
       <div>
-        {this.props.venues !== null ?
+        {this.props.venues.length !== 0 ?
           (<ul className="venue-card-list">
             {this.props.venues.map((cv, i) => (
               <li key={this.props.venues[i].venue.id} className="venue-card-list-item" >
@@ -70,10 +71,14 @@ class VenueCardList extends Component {
               </li>
             ))}
           </ul>
-          ) : ""}
+          ) : <h1>Aradığınız sonuca ulaşılamadı.</h1>}
       </div>
     );
   }
 }
+
+VenueCardList.propTypes = {
+  venues: propTypes.array.isRequired
+};
 
 export default VenueCardList;
