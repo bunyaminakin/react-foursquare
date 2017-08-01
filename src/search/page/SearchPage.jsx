@@ -18,6 +18,7 @@ class SearchPage extends Component {
     this.updateRecentSearch = this.updateRecentSearch.bind(this);
   }
   handleFormSubmit(query, location) {
+    console.log("working handleFormSubmit");
     this.setState({
       query,
       location
@@ -37,12 +38,30 @@ class SearchPage extends Component {
 
     if (this.state.query !== "" && this.state.location !== "") {
       if (this.state.recentSearch.length < recentSearchLimit) {
-        this.state.recentSearch.push(`${this.state.query} in ${this.state.location}`);
+        this.state.recentSearch.unshift([`${this.state.query}`, `${this.state.location}`]);
       } else {
         this.state.recentSearch.shift();
-        this.state.recentSearch.push(`${this.state.query} in ${this.state.location}`);
+        this.state.recentSearch.unshift([`${this.state.query}`, `${this.state.location}`]);
       }
     }
+    const uniques = [];
+    const itemsFound = {};
+
+    for (let i = 0; i < this.state.recentSearch.length; i++) {
+      const stringified = JSON.stringify(this.state.recentSearch[i]);
+
+      if (itemsFound[stringified]) {
+        continue;
+      }
+      uniques.push(this.state.recentSearch[i]);
+      itemsFound[stringified] = true;
+    }
+    console.log("Uniques" + uniques);
+    this.setState({
+      recentSearch: uniques
+    });
+
+    console.log("Recent Search " + this.state.recentSearch);
   }
   getVenues() {
     const url = "https://api.foursquare.com/v2/venues/explore";
@@ -81,7 +100,7 @@ class SearchPage extends Component {
             <VenueCardList venues={this.state.venues}/>
           </div>
           <div className="search-page-recent-search-list">
-            <RecentSearchList recentSearch={this.state.recentSearch}/>
+            <RecentSearchList recentSearch={this.state.recentSearch} newSearch={this.handleFormSubmit}/>
           </div>
         </div>
         <Footer/>

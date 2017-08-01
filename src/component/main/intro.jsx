@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "./intro.scss";
+import PropTypes from "prop-types";
 
 class Intro extends Component {
   render() {
@@ -12,5 +13,10 @@ class Intro extends Component {
     );
   }
 }
+
+Intro.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string
+};
 
 export default Intro;
