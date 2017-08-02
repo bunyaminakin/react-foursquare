@@ -69,18 +69,18 @@
       display:inline-block;
       padding:0 20px 0 0;
       .venue-card-hereNow-icon{
-        font-weight:bold;
         padding-right:7px;
       }
       .venue-card-hereNow-count{
-        vertical-align:top;
+        vertical-align:middle;
+        font-weight: 500;
+        font-size: 12px;
       }
     }
 
     .venue-card-price{
       display:inline-block;
       .venue-card-price-icon{
-        font-weight:bold;
         padding-right:7px;
       }
       .venue-card-price-bar{
@@ -132,6 +132,7 @@
       transform:translate(-50%,140%);
       z-index:10;
       color:#FFF;
+      font-size: 15px;
     }
   }
 }

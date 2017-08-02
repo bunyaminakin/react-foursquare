@@ -8,9 +8,6 @@ class RecentSearchList extends Component {
   };
   constructor(props) {
     super(props);
-    this.state = {
-      recentSearch: []
-    };
   }
 
   newSearch = (query, location) => {
@@ -20,18 +17,19 @@ class RecentSearchList extends Component {
     }, () => {
       this.props.newSearch(this.state.query, this.state.location);
     });
-  }
+  };
 
   render() {
     const recentSearchHeader = "RECENT SEARCH";
+    const recentSearch = this.props.recentSearch;
     return (
       <div className="recent-search">
         <h3 className="recent-search-header">{recentSearchHeader}</h3>
         <ul className="recent-search-items">
-          {this.props.recentSearch.map((cv, i) => (
-            <li key={this.props.recentSearch[i] + i.toString()} className="recent-search-item">
-              <a href="" onClick={e => (e.preventDefault() & this.newSearch(this.props.recentSearch[i][0], this.props.recentSearch[i][1]))} className="recent-search-item-link">
-                {`${this.props.recentSearch[i][0]} in ${this.props.recentSearch[i][1]}`}
+          {recentSearch.map((cv, i) => (
+            <li key={recentSearch[i] + i.toString()} className="recent-search-item">
+              <a href="" onClick={e => (e.preventDefault() & this.newSearch(recentSearch[i][0], recentSearch[i][1]))} className="recent-search-item-link">
+                {`${recentSearch[i][0]} in ${recentSearch[i][1]}`}
               </a>
             </li>
           ))}

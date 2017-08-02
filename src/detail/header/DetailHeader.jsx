@@ -10,33 +10,25 @@ class DetailHeader extends Component {
         <h1 className="detail-header-venue-name">Name of Cafe</h1>
         <div className="detail-header-venue-details">
           <div className="detail-header-venue-address">
-            <i className="detail-header-venue-address-logo">
-                A
-            </i>
+            <img className="detail-header-venue-address-logo" src="" />
             <span className="detail-header-venue-address-text">
                 Caferağa Mh. Kadife Sk. No:15 Kadıköy
             </span>
           </div>
           <div className="detail-header-venue-phone">
-            <i className="detail-header-venue-phone-logo">
-                A
-            </i>
+            <img className="detail-header-venue-phone-logo" src="" />
             <span className="detail-header-venue-phone-text">
                 0 (216) 345 67 78
             </span>
           </div>
           <div className="detail-header-venue-hereNow-count">
-            <i className="detail-header-venue-hereNow-count-logo">
-                A
-            </i>
+            <img className="detail-header-venue-hereNow-count-logo" src="" />
             <span className="detail-header-venue-hereNow-count-text">
                 123
             </span>
           </div>
           <div className="detail-header-venue-price">
-            <i className="detail-header-venue-price-logo">
-                A
-            </i>
+            <img className="detail-header-venue-price-logo" src="" />
             <span>-</span>
             <span>-</span>
             <span>-</span>

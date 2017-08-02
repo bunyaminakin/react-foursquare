@@ -5,11 +5,12 @@ import propTypes from "prop-types";
 class VenueCardList extends Component {
   static propTypes = {
       venues:propTypes.array.isRequired
-  }
+  };
   constructor(props) {
     super(props);
   }
-  selectVenue = (venue, event) => {
+
+  handleSelectVenue = (venue) => {
     console.log(`selectVenue${JSON.stringify(venue)}`);
   };
 
@@ -28,41 +29,38 @@ class VenueCardList extends Component {
   };
 
   render() {
+    const venues = this.props.venues;
     return (
       <div className="venues">
-        {this.props.venues.length !== 0 ?
+        {venues.length !== 0 ?
           (<ul className="venue-card-list">
-            {this.props.venues.map((cv, i) => (
-              <li key={this.props.venues[i].venue.id} className="venue-card-list-item" >
-                <a onClick={this.selectVenue.bind(this, cv)} href="#">
+            {venues.map((cv, i) => (
+              <li key={venues[i].venue.id} className="venue-card-list-item" >
+                <a onClick={(e) => { e.preventDefault() & this.handleSelectVenue(cv)}} href="#">
                   <div>
                     <div className="venue-card">
                       <img className="venue-card-backgroundImage" src={
-                        this.props.venues[i].venue.photos.count !== 0 ?
-                          `${this.props.venues[i].venue.photos.groups[0].items[0].prefix}${this.props.venues[i].venue.photos.groups[0].items[0].width}x${this.props.venues[i].venue.photos.groups[0].items[0].height}${
-                            this.props.venues[i].venue.photos.groups[0].items[0].suffix}` : ""}/>
+                        venues[i].venue.photos.count !== 0 ?
+                          `${venues[i].venue.photos.groups[0].items[0].prefix}${venues[i].venue.photos.groups[0].items[0].width}x${venues[i].venue.photos.groups[0].items[0].height}${
+                            venues[i].venue.photos.groups[0].items[0].suffix}` : ""}/>
                       <div className="venue-card-detail">
                         <h1 className="venue-card-name">
-                          {this.props.venues[i].venue.name}
+                          {venues[i].venue.name}
                         </h1>
                         <div className="venue-card-hereNow">
-                          <i className="venue-card-hereNow-icon">
-                            {"A"}
-                          </i>
-                          <span className="venue-card-hereNow-count">{this.props.venues[i].venue.hereNow.count}</span>
+                          <img className="venue-card-hereNow-icon" src={require("../../../img/ic-01.png")}/>
+                          <span className="venue-card-hereNow-count">{venues[i].venue.hereNow.count}</span>
                         </div>
                         <div className="venue-card-price">
-                          <i className="venue-card-price-icon">
-                            {"A"}
-                          </i>
+                          <img className="venue-card-price-icon" src={require("../../../img/ic-02.png")}/>
                           <div className="venue-card-price-bar">
-                            {this.props.venues[i].venue.price !== undefined ? this.priceBar(`${this.props.venues[i].venue.price.tier}`) : this.priceBar(0)}
+                            {venues[i].venue.price !== undefined ? this.priceBar(`${venues[i].venue.price.tier}`) : this.priceBar(0)}
                           </div>
                         </div>
                       </div>
                       <div className="venue-card-rate">
                         <span className="venue-card-rate-value">
-                          {this.props.venues[i].venue.rating}
+                          {venues[i].venue.rating}
                         </span>
                       </div>
                     </div>
