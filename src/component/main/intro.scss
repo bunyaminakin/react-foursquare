@@ -3,34 +3,41 @@
   display: inline-block;
 
   .intro-title{
+    display: none;
+    text-align: center;
+
     margin-top:23px;
     margin-bottom: 17px;
+
+    color: #ffffff;
+
     font-family: Gotham;
     font-size: 55px;
     font-weight: 200;
-    text-align: center;
-    color: #ffffff;
-
-    display: none;
   }
 
   .intro-description{
-    margin:auto;
-    max-width:543px;
-    font-family: Gotham-Book;
-    font-size: 16px;
+    display: none;
     text-align: center;
+
+    max-width:543px;
+
+    margin:auto;
+
     color: #ffffff;
 
-    display: none;
+    font-family: Gotham-Book;
+    font-size: 16px;
   }
 
   .intro-logo{
     position: relative;
     top:0;
-    transform: translateX(-25%);
     left: 25%;
+
     width: 252px;
     height: 124px;
+
+    transform: translateX(-25%);
   }
 }

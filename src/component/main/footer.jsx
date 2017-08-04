@@ -1,18 +1,18 @@
 import React, {Component} from "react";
 import "./footer.scss";
-import propTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 class Footer extends Component {
+  static PropTypes = {
+    aboutUs: PropTypes.string.isRequired,
+    contact: PropTypes.string.isRequired,
+    blog: PropTypes.string.isRequired
+  };
   static defaultProps = {
     aboutUs: "About Us",
     contact: "Contact",
     blog: "Blog"
   };
-  static propTypes = {
-      aboutUs: propTypes.string.isRequired,
-      contact: propTypes.string.isRequired,
-      blog: propTypes.string.isRequired
-  }
   render() {
     const aboutUS = "About Us";
     const contact = "Contact";

@@ -4,17 +4,24 @@ import Footer from "../../component/main/footer.jsx";
 import VenueCardList from "../list/VenueCardList.jsx";
 import RecentSearchList from "../list/RecentSearchList.jsx";
 import superagent from "superagent";
+import PropTypes from "prop-types";
 import "./search-page.scss";
-import propTypes from 'prop-types';
 
 class SearchPage extends Component {
+  static PropTypes = {
+    venues: PropTypes.array.isRequired,
+    recentSearch: PropTypes.array.isRequired
+  };
+
   constructor(props) {
     super(props);
     this.state = {
       venues: null,
-      recentSearch: []
+      recentSearch: [],
+      id: ""
     };
   }
+
   handleFormSubmit = (query, location) => {
     this.setState({
       query,
@@ -46,11 +53,10 @@ class SearchPage extends Component {
     for (let i = 0; i < this.state.recentSearch.length; i++) {
       const stringified = JSON.stringify(this.state.recentSearch[i]);
 
-      if (itemsFound[stringified]) {
-        continue;
+      if (!itemsFound[stringified]) {
+        uniques.push(this.state.recentSearch[i]);
+        itemsFound[stringified] = true;
       }
-      uniques.push(this.state.recentSearch[i]);
-      itemsFound[stringified] = true;
     }
     this.setState({
       recentSearch: uniques
@@ -94,10 +100,12 @@ class SearchPage extends Component {
         </div>
         <div className="search-page-lists">
           <div className="search-page-venue-card-list">
-            {this.state.venues !== null  ? <VenueCardList venues={this.state.venues}/> : ""}
+            {
+              Boolean(this.state.venues) === !null ? <VenueCardList venues={this.state.venues}/> : ""
+            }
           </div>
           <div className="search-page-recent-search-list">
-            <RecentSearchList recentSearch={this.state.recentSearch} newSearch={this.handleFormSubmit}/>
+            <RecentSearchList recentSearch={this.state.recentSearch} onClick={this.handleFormSubmit}/>
           </div>
         </div>
         <Footer/>

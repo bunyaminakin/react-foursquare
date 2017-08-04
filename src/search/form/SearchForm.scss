@@ -1,65 +1,72 @@
-.search-form-header{
-  text-align: center;
-  background-image: url("http://unsplash.it/1800x150");
-  background:linear-gradient(to right,#1e0db4,#e44747);
+.logo{
+  vertical-align: middle;
+  width: 252px;
+  margin:0 0 24px;
+}
+.search-form{
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 12;
-}
-.logo{
-  width: 252px;
-  vertical-align: middle;
-  margin:0 0 25px;
-}
-.search-form{
-  text-align: center;
-  padding-bottom: 131px;
-  padding-top: 65px;
-  display: inline-block;
+
   padding: 0;
 
+  background:linear-gradient(to right,#1e0db4,#e44747);
+
   .search-form-query-bar{
+    width: 285px;
+
+    margin:0px;
+    padding: 15px 20px;
+
+    color: #9b9b9b;
+    border: 0;
+
     font-family: Gotham;
     font-size: 14px;
     font-weight: 500;
-    color: #9b9b9b;
-    border: 0;
+
     border-radius: 4px;
     background-color: #ffffff;
     box-shadow: 0 12px 21px 0 rgba(0, 0, 0, 0.24);
 
-    margin:0px;
-    width: 285px;
-    padding: 15px 20px;
   }
 
   .search-form-location-bar{
-    margin: 0 10px;
-    font-family: Gotham;
-    font-size: 14px;
-    border: 0;
-    font-weight: 500;
-    color: #9b9b9b;
     object-fit: contain;
-    border-radius: 4px;
-    background-color: #ffffff;
-    box-shadow: 0 12px 21px 0 rgba(0, 0, 0, 0.24);
 
     width: 156px;
+
+    margin: 0 10px;
     padding: 15px 20px;
+
+    color: #9b9b9b;
+    border: 0;
+    border-radius: 4px;
+    background-color: #ffffff;
+
+    font-family: Gotham;
+    font-size: 14px;
+    font-weight: 500;
+
+    box-shadow: 0 12px 21px 0 rgba(0, 0, 0, 0.24);
   }
 
   .submit-button{
-    border-radius: 4px;
-    background-color: #ff5f5f;
-    border: 0;
-    box-shadow: 0 12px 21px 0 rgba(0, 0, 0, 0.24);
     vertical-align: middle;
-    background-repeat: no-repeat;
-    background-position: top center;
+
     width:77px;
     height: 45px;
+
     padding: 11px 26px 10px 27px;
+
+    background-color: #ff5f5f;
+    border: 0;
+    border-radius: 4px;
+
+    background-image: url("../../../img/shape-search.png");
+    background-repeat: no-repeat;
+    background-position: top center;
+
+    box-shadow: 0 12px 21px 0 rgba(0, 0, 0, 0.24);
   }
 }

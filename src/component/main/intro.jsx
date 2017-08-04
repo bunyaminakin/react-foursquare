@@ -1,20 +1,22 @@
 import React, {Component} from "react";
 import "./intro.scss";
 import PropTypes from "prop-types";
+import logo from "../../../img/logo.png";
 
 class Intro extends Component {
-    static defaultProps = {
-        title:"",
-        description:""
-    };
-    static propTypes = {
-        title: PropTypes.string,
-        description: PropTypes.string
-    };
+  static PropTypes = {
+    title: PropTypes.string,
+    description: PropTypes.string
+  };
+
+  static defaultProps = {
+    title: "",
+    description: ""
+  };
   render() {
     return (
       <div className="intro">
-        <img className="intro-logo" src={require("../../../img/logo.png")}/>
+        <img className="intro-logo" src={logo}/>
         <h1 className="intro-title">{this.props.title}</h1>
         <p className="intro-description">{this.props.description}</p>
       </div>
