@@ -1,5 +1,7 @@
 import React, {Component} from "react";
+
 import "./SearchForm.scss";
+
 import logo from "../../../img/logo-2@2x.png";
 
 class SearchForm extends Component {
@@ -38,13 +40,15 @@ class SearchForm extends Component {
   render() {
     return (
       <form className="search-form" onSubmit={this.handleSubmit}>
-        <img className="logo" src={logo}/>
+        <img className="logo" src={logo} alt="Logo"/>
         <input onChange={this.handleChangeQuerySearchFilter}
-            type="text" placeholder="I'am looking for"
-            className="search-form-query-bar"/>
+               type="text"
+               placeholder="I'am looking for"
+               className="search-form-query-bar"/>
         <input onChange={this.handleChangeLocationSearchFilter}
-            type="text" placeholder="Istanbul"
-            className="search-form-location-bar"/>
+                type="text"
+                placeholder="Istanbul"
+                className="search-form-location-bar"/>
         <button type="submit" className="submit-button"></button>
       </form>
     );

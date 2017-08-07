@@ -1,10 +1,8 @@
 .logo{
-  vertical-align: middle;
   width: 252px;
   margin:0 0 24px;
 }
 .search-form{
-  display: flex;
   justify-content: center;
   align-items: center;
 
@@ -21,7 +19,6 @@
     color: #9b9b9b;
     border: 0;
 
-    font-family: Gotham;
     font-size: 14px;
     font-weight: 500;
 
@@ -32,8 +29,6 @@
   }
 
   .search-form-location-bar{
-    object-fit: contain;
-
     width: 156px;
 
     margin: 0 10px;
@@ -44,7 +39,6 @@
     border-radius: 4px;
     background-color: #ffffff;
 
-    font-family: Gotham;
     font-size: 14px;
     font-weight: 500;
 
@@ -52,8 +46,6 @@
   }
 
   .submit-button{
-    vertical-align: middle;
-
     width:77px;
     height: 45px;
 
@@ -68,5 +60,23 @@
     background-position: top center;
 
     box-shadow: 0 12px 21px 0 rgba(0, 0, 0, 0.24);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .search-form{
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .search-form{
+    text-align: center;
+    .search-form-query-bar{
+      padding-right:15px;
+    }
+    .submit-button{
+      vertical-align: bottom;
+    }
   }
 }

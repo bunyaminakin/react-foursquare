@@ -1,11 +1,19 @@
 import React, {Component} from "react";
-import SearchForm from "../form/SearchForm.jsx";
-import Footer from "../../component/main/footer.jsx";
-import VenueCardList from "../list/VenueCardList.jsx";
-import RecentSearchList from "../list/RecentSearchList.jsx";
+
 import superagent from "superagent";
 import PropTypes from "prop-types";
+
+import SearchForm from "../form/SearchForm.jsx";
+import VenueCardList from "../list/VenueCardList.jsx";
+import RecentSearchList from "../list/RecentSearchList.jsx";
+
 import "./search-page.scss";
+
+const apiParams = {
+  client_id: "V131V0IPODZOAI4DH0TXB0W1VF4R1QCAHASGHJI35D3KJLWK",
+  client_secret: "L5RZFRA1K2KPH33H12BFD3MECOJKEBIJSLP14KXYRYW3A5AF",
+  v: "24072017"
+};
 
 class SearchPage extends Component {
   static PropTypes = {
@@ -26,25 +34,20 @@ class SearchPage extends Component {
     this.setState({
       query,
       location
-    }, function (err, response) {
-      if (err) {
-        console.log("ERROR!");
-      } else {
-        this.getVenues();
-        this.updateRecentSearch();
-      }
     });
+    this.getVenues(query, location);
+    this.updateRecentSearch(query, location);
   };
 
-  updateRecentSearch = () => {
+  updateRecentSearch = (query, location) => {
     const recentSearchLimit = 10;
 
-    if (this.state.query !== "" && this.state.location !== "") {
+    if (query !== "" && location !== "") {
       if (this.state.recentSearch.length < recentSearchLimit) {
-        this.state.recentSearch.unshift([`${this.state.query}`, `${this.state.location}`]);
+        this.state.recentSearch.unshift([`${query}`, `${location}`]);
       } else {
         this.state.recentSearch.shift();
-        this.state.recentSearch.unshift([`${this.state.query}`, `${this.state.location}`]);
+        this.state.recentSearch.unshift([`${query}`, `${location}`]);
       }
     }
     const uniques = [];
@@ -63,18 +66,19 @@ class SearchPage extends Component {
     });
   };
 
-  getVenues = () => {
+  getVenues = (query, location) => {
     const url = "https://api.foursquare.com/v2/venues/explore";
 
     const params = {
-      v: "24072017",
       venuePhotos: "1",
       limit: "10",
-      near: this.state.location,
-      query: this.state.query,
-      client_id: "V131V0IPODZOAI4DH0TXB0W1VF4R1QCAHASGHJI35D3KJLWK",
-      client_secret: "L5RZFRA1K2KPH33H12BFD3MECOJKEBIJSLP14KXYRYW3A5AF"
+      near: location,
+      query,
+      client_id: apiParams.client_id,
+      client_secret: apiParams.client_secret,
+      v: apiParams.v
     };
+
 
     superagent
       .get(url)
@@ -95,7 +99,7 @@ class SearchPage extends Component {
   render() {
     return (
       <div className="search-page">
-        <div className="search-page-form">
+        <div className="search-page-form-container">
           <SearchForm onSubmit={this.handleFormSubmit}/>
         </div>
         <div className="search-page-lists">
@@ -105,10 +109,10 @@ class SearchPage extends Component {
             }
           </div>
           <div className="search-page-recent-search-list">
-            <RecentSearchList recentSearch={this.state.recentSearch} onClick={this.handleFormSubmit}/>
+            <RecentSearchList recentSearch={this.state.recentSearch}
+                              onClick={this.handleFormSubmit}/>
           </div>
         </div>
-        <Footer/>
       </div>
     );
   }

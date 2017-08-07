@@ -1,6 +1,8 @@
-import React, {Component} from "react";
-import "./intro.scss";
+import React, {Component} from "react"
+    ;
 import PropTypes from "prop-types";
+
+import "./intro.scss";
 import logo from "../../../img/logo.png";
 
 class Intro extends Component {
@@ -16,7 +18,9 @@ class Intro extends Component {
   render() {
     return (
       <div className="intro">
-        <img className="intro-logo" src={logo}/>
+        <img className="intro-logo"
+             src={logo}
+             alt="app-logo"/>
         <h1 className="intro-title">{this.props.title}</h1>
         <p className="intro-description">{this.props.description}</p>
       </div>

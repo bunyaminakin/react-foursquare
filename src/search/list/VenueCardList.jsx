@@ -1,7 +1,10 @@
 import React, {Component} from "react";
-import "./venue-card-list.scss";
+
 import PropTypes from "prop-types";
+
 import VenueCard from "./VenueCard.jsx";
+
+import "./venue-card-list.scss";
 
 class VenueCardList extends Component {
   static PropTypes = {
@@ -13,15 +16,17 @@ class VenueCardList extends Component {
   };
 
   render() {
-    const [venues] = [this.props.venues];
+    const {venues} = this.props;
 
     return (
       <div className="venues">
         {
             Boolean(venues.length) === !0 ? (<ul className="venue-card-list">
-              {venues.map((cv, i) => (
-                <li key={venues[i].venue.id} className="venue-card-list-item" >
-                  <VenueCard venues={venues[i]} onClick={this.handleSelectVenue}/>
+              {venues.map((currentValue, index) => (
+                <li key={venues[index].referralId}
+                    className="venue-card-list-item" >
+                  <VenueCard venues={venues[index]}
+                             onClick={this.handleSelectVenue}/>
                 </li>
                   ))
                 }

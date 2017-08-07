@@ -1,7 +1,10 @@
 import React, {Component} from "react";
-import "./recent-search-list.scss";
+
 import PropTypes from "prop-types";
+
 import RecentSearchItem from "./RecentSearchItem.jsx";
+
+import "./recent-search-list.scss";
 
 class RecentSearchList extends Component {
   static PropTypes = {
@@ -16,18 +19,18 @@ class RecentSearchList extends Component {
     this.props.onClick(query, location);
   };
 
-
   render() {
-    const recentSearchHeader = "RECENT SEARCH";
-    const [recentSearch] = [this.props.recentSearch];
+    const {recentSearch} = this.props;
 
     return (
       <div className="recent-search">
-        <h3 className="recent-search-header">{recentSearchHeader}</h3>
+        <h3 className="recent-search-header">{"RECENT SEARCH"}</h3>
         <ul className="recent-search-items">
-          {recentSearch.map((cv, i) => (
-            <li key={recentSearch[i] + i.toString()} className="recent-search-item">
-              <RecentSearchItem recentSearch={recentSearch[i]} onClick={this.handleSelectSearch}/>
+          {recentSearch.map((currentValue, index) => (
+            <li key={recentSearch[index] + index.toString()}
+                className="recent-search-item">
+              <RecentSearchItem recentSearch={recentSearch[index]}
+                                onClick={this.handleSelectSearch}/>
             </li>
           ))}
         </ul>

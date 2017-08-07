@@ -30,7 +30,7 @@ module.exports = {
         loader: "style-loader!css-loader!sass-loader"
       },
       {
-        test: /\.png$/,
+        test: /\.(ttf|eot|svg|otf|png?)(\?[a-z0-9=&.]+)?$/,
         loader: "file-loader"
       }
     ]
