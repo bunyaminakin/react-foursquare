@@ -16,16 +16,16 @@ class VenueCardList extends Component {
   };
 
   render() {
-    const {venues} = this.props;
+    const {venue} = this.props;
 
     return (
       <div className="venues">
         {
-            Boolean(venues.length) === !0 ? (<ul className="venue-card-list">
-              {venues.map((currentValue, index) => (
-                <li key={venues[index].referralId}
+            venue.length > 0 ? (<ul className="venue-card-list">
+              {venue.map((venueValue, index) => (
+                <li key={venue[index].referralId}
                     className="venue-card-list-item" >
-                  <VenueCard venues={venues[index]}
+                  <VenueCard venues={venue[index]}
                              onClick={this.handleSelectVenue}/>
                 </li>
                   ))

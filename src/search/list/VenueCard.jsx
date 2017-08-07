@@ -41,7 +41,7 @@ class VenueCard extends Component {
            onClick={this.handleClick}>
         <img className="venue-card-background-image"
              src={
-               Boolean(venues.venue.photos.count) === !0 ? (this.imageSourceGeneration(venues)) : ""}
+               venues.venue.photos.count > 0 ? (this.imageSourceGeneration(venues)) : ""}
               alt="Venue Image"
         />
         <div className="venue-card-detail">
@@ -61,7 +61,7 @@ class VenueCard extends Component {
                  src={priceIcon}
                  alt="Price Icon"/>
             <div className="venue-card-price-bar">
-              {Boolean(venues.venue.price) === !0 ? (this.renderPriceBars(`${venues.venue.price.tier}`)) : this.renderPriceBars(0)}
+              {venues.venue.price === undefined ? this.renderPriceBars(0) : (this.renderPriceBars(`${venues.venue.price.tier}`))}
             </div>
           </div>
         </div>

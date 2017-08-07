@@ -105,7 +105,7 @@ class SearchPage extends Component {
         <div className="search-page-lists">
           <div className="search-page-venue-card-list">
             {
-              Boolean(this.state.venues) === !null ? <VenueCardList venues={this.state.venues}/> : ""
+              this.state.venues && <VenueCardList venue={this.state.venues}/>
             }
           </div>
           <div className="search-page-recent-search-list">
