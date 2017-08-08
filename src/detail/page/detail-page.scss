@@ -1,0 +1,32 @@
+.detail-page-lists{
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+}
+@media screen and (min-width: 1024px) {
+  .detail-page-lists {
+    display: flex;
+  }
+}
+
+.detail-page-venue-photo-list{
+  flex-grow: 2;
+  flex-shrink: 2;
+  flex-basis: 22px;
+  justify-content: center;
+}
+.detail-page-venue-tip-list{
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  align-items: flex-start;
+  display: flex;
+  padding: 40px 20px;
+  justify-content: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .detail-page-venue-tip-list {
+    justify-content: flex-start;
+  }
+}

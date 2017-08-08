@@ -8,6 +8,7 @@ import VenueCardList from "../list/VenueCardList.jsx";
 import RecentSearchList from "../list/RecentSearchList.jsx";
 
 import "./search-page.scss";
+import DetailPage from "../../detail/page/DetailPage.jsx";
 
 const apiParams = {
   client_id: "V131V0IPODZOAI4DH0TXB0W1VF4R1QCAHASGHJI35D3KJLWK",
@@ -96,22 +97,35 @@ class SearchPage extends Component {
       });
   };
 
+  handleDetail = (venueID) => {
+    this.setState({
+      id: venueID
+    });
+  };
+
   render() {
     return (
-      <div className="search-page">
-        <div className="search-page-form-container">
-          <SearchForm onSubmit={this.handleFormSubmit}/>
-        </div>
-        <div className="search-page-lists">
-          <div className="search-page-venue-card-list">
-            {
-              this.state.venues && <VenueCardList venue={this.state.venues}/>
+      <div>
+        <div className="search-page">
+          <div className="search-page-form-container">
+            <SearchForm onSubmit={this.handleFormSubmit}/>
+          </div>
+          <div className="search-page-lists">
+            <div className="search-page-venue-card-list">
+              {
+              this.state.venues && <VenueCardList venue={this.state.venues} onClick={this.handleDetail}/>
             }
-          </div>
-          <div className="search-page-recent-search-list">
-            <RecentSearchList recentSearch={this.state.recentSearch}
+            </div>
+            <div className="search-page-recent-search-list">
+              <RecentSearchList recentSearch={this.state.recentSearch}
                               onClick={this.handleFormSubmit}/>
+            </div>
           </div>
+        </div>
+        <div>
+          {
+              this.state.id === "" ? "" : <DetailPage id={this.state.id}/>
+          }
         </div>
       </div>
     );

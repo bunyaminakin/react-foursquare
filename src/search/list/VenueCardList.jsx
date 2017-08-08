@@ -13,6 +13,7 @@ class VenueCardList extends Component {
 
   handleSelectVenue = (venue) => {
     console.log(venue);
+    this.props.onClick(venue.id);
   };
 
   render() {
