@@ -1,9 +1,6 @@
 import React, {Component} from "react";
-
 import PropTypes from "prop-types";
-
 import VenueCard from "./VenueCard.jsx";
-
 import "./venue-card-list.scss";
 
 class VenueCardList extends Component {

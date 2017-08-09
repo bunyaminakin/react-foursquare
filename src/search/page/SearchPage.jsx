@@ -1,14 +1,11 @@
 import React, {Component} from "react";
-
 import superagent from "superagent";
 import PropTypes from "prop-types";
-
 import SearchForm from "../form/SearchForm.jsx";
 import VenueCardList from "../list/VenueCardList.jsx";
 import RecentSearchList from "../list/RecentSearchList.jsx";
-
-import "./search-page.scss";
 import DetailPage from "../../detail/page/DetailPage.jsx";
+import "./search-page.scss";
 
 const apiParams = {
   client_id: "V131V0IPODZOAI4DH0TXB0W1VF4R1QCAHASGHJI35D3KJLWK",
@@ -124,7 +121,7 @@ class SearchPage extends Component {
         </div>
         <div>
           {
-              this.state.id === "" ? "" : <DetailPage id={this.state.id}/>
+              this.state.id && <DetailPage id={this.state.id}/>
           }
         </div>
       </div>

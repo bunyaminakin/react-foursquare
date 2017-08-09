@@ -2,9 +2,6 @@ import React, {Component} from "react";
 import "./venue-photo-list.scss";
 
 class VenuePhotoList extends Component {
-    constructor(props){
-        super(props);
-    }
   render() {
     const {photoList} = this.props;
 

@@ -16,17 +16,17 @@ class DetailPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      venueDetails: [],
+      details: [],
       photos: [],
       tipList: []
     };
     this.handleClick(this.props.id);
-    console.log("cons çalışıyo");
   }
 
   componentWillReceiveProps(nextProps) {
     this.handleClick(nextProps.id);
   }
+
   handleClick = (id) => {
     this.getVenueDetails(id);
     this.getVenuePhotos(id);
@@ -47,12 +47,12 @@ class DetailPage extends Component {
         .set("Accept", "application/json")
         .then((data) => {
           this.setState({
-            venueDetails: data.body.response.venue
+            details: data.body.response.venue
           });
         }, (err) => {
           console.log(`OPS ${err.message}`);
           this.setState({
-            venueDetails: []
+            details: []
           });
         });
   };
@@ -105,33 +105,34 @@ class DetailPage extends Component {
   };
 
   render() {
-    const {venueDetails} = this.state;
+    const {details} = this.state;
     const {photos} = this.state;
     const {tipList} = this.state;
-
-    console.log("Venue Detail "+(venueDetails.length));
 
     return (
       <div className="detail-page">
         {
-              venueDetails.length === 0 ? "" : (
+              details.length !== 0 &&
+              (
                 <div className="detail-page-header">
-                  <DetailHeader venueDetails={this.state.venueDetails}/>
+                  <DetailHeader details={details}/>
                 </div>
               )
           }
         <div className="detail-page-lists">
           {
-              photos.length === 0 ? "" : (
+              photos.length !== 0 &&
+              (
                 <div className="detail-page-venue-photo-list">
-                  <VenuePhotoList photoList={this.state.photos}/>
+                  <VenuePhotoList photoList={photos}/>
                 </div>
               )
           }
           {
-              tipList.length === 0 ? "" : (
+              tipList.length !== 0 &&
+              (
                 <div className="detail-page-venue-tip-list">
-                  <VenueTipList tipList={this.state.tipList}/>
+                  <VenueTipList tipList={tipList}/>
                 </div>
               )
           }

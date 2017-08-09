@@ -2,9 +2,6 @@ import React, {Component} from "react";
 import "./venue-tip-list.scss";
 
 class VenueTipList extends Component {
-  constructor(props){
-    super(props);
-  }
   render() {
     const {tipList} = this.props;
     const tipListLimit = 4;
@@ -35,6 +32,7 @@ class VenueTipList extends Component {
                         </li>
                       );
                     }
+                    return false;
                   }
                   )
                 }
