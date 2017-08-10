@@ -1,7 +1,7 @@
 .detail-page-lists{
+  position: relative;
   flex-direction: row;
   justify-content: center;
-  position: relative;
 }
 @media screen and (min-width: 1024px) {
   .detail-page-lists {
@@ -9,24 +9,22 @@
   }
 }
 
-.detail-page-venue-photo-list{
-  flex-grow: 2;
-  flex-shrink: 2;
-  flex-basis: 22px;
+.detail-page-photo-list-container{
+  flex:2 2 22px;
   justify-content: center;
 }
-.detail-page-venue-tip-list{
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 0;
+.detail-page-tip-list-container{
+  flex:1 1 0;
   align-items: flex-start;
   display: flex;
-  padding: 40px 20px;
+
   justify-content: center;
+
+  padding: 40px 20px;
 }
 
 @media screen and (min-width: 1024px) {
-  .detail-page-venue-tip-list {
+  .detail-page-tip-list-container{
     justify-content: flex-start;
   }
 }

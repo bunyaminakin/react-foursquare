@@ -1,7 +1,13 @@
 import React, {Component} from "react";
+import PropTypes from "prop-types";
+
 import "./venue-photo-list.scss";
 
 class VenuePhotoList extends Component {
+  static PropTypes = {
+    photoList: PropTypes.array.isRequired
+  };
+
   render() {
     const {photoList} = this.props;
 
@@ -12,19 +18,19 @@ class VenuePhotoList extends Component {
             {
                 photoList && (
                     photoList.map((photo, index) => (
-                      <li key={photoList[index].id} className="venue-photo-cards">
+                      <li key={photo.id} className="venue-photo-card-list-item">
                         <div className="venue-photo-card">
                           <img className="venue-photo-card-background-image" src={
-                                  `${photoList[index].prefix}400x400${photoList[index].suffix}`
+                                  `${photo.prefix}400x400${photo.suffix}`
                               }/>
                           <div className="venue-photo-uplader">
                             <img className="venue-photo-uploader-image" src={
-                                    `${photoList[index].user.photo.prefix}100x100${
-                                        photoList[index].user.photo.suffix}`
+                                    `${photo.user.photo.prefix}100x100${
+                                        photo.user.photo.suffix}`
                                 }/>
                           </div>
                           <span className="venue-photo-uploader-name">
-                            {`${photoList[index].user.firstName} ${photoList[index].user.lastName}`}
+                            {`${photo.user.firstName} ${photo.user.lastName}`}
                           </span>
                         </div>
                       </li>

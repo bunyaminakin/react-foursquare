@@ -12,9 +12,9 @@ class Main extends Component {
 
   render() {
     return (
-        <div>
-          <SearchPage/>
-        </div>
+      <div>
+        <SearchPage/>
+      </div>
     );
   }
 }

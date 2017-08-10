@@ -1,13 +1,20 @@
 import React, {Component} from "react";
+import PropTypes from "prop-types";
+
 import "./venue-tip-list.scss";
 
+const TIP_LIST_LIMIT = 4;
+
 class VenueTipList extends Component {
+  static PropTypes = {
+    tipList: PropTypes.array.isRequired
+  };
+
   render() {
     const {tipList} = this.props;
-    const tipListLimit = 4;
 
     return (
-      <div className="venue-tip-list">
+      <div className="venue-tip-list-panel">
         {
           tipList && (
             <div>
@@ -15,7 +22,7 @@ class VenueTipList extends Component {
               <ul className="venue-tips">
                 {
                   tipList.map((tip, index) => {
-                    if (index < tipListLimit) {
+                    if (index < TIP_LIST_LIMIT) {
                       return (
                         <li key={tipList[index].id} className="venue-tip">
                           <div className="venue-tip-user-detail">

@@ -1,5 +1,7 @@
 import React, {Component} from "react";
-import "./detail-header.scss";
+import PropTypes from "prop-types";
+import "./venue-detail-header.scss";
+
 import logo from "../../../img/logo.png";
 import category from "../../../img/category.png";
 import locationIcon from "../../../img/combined-shape.png";
@@ -7,14 +9,19 @@ import phoneIcon from "../../../img/shape.png";
 import hereNowIcon from "../../../img/ic-01.png";
 import priceIcon from "../../../img/ic-02.png";
 
-class DetailHeader extends Component {
+class VenueDetailHeader extends Component {
+  static PropTypes = {
+    imageSourceGeneration: PropTypes.func.isRequired,
+    renderPriceBar: PropTypes.func.isRequired,
+    detail: PropTypes.array.isRequired
+  };
+
   imageSourceGeneration = (source) => {
     const SourceValue = source.bestPhoto;
-    const imgSrc = [];
+    const imgSrc = `${SourceValue.prefix}${SourceValue.width}x${SourceValue.height}${SourceValue.suffix}`;
 
-    imgSrc.push(SourceValue.prefix, SourceValue.width, "x", SourceValue.height, SourceValue.suffix);
     return (
-        imgSrc.join("").toString()
+        imgSrc
     );
   };
 
@@ -24,7 +31,7 @@ class DetailHeader extends Component {
     for (let counter = 1; counter <= i; counter++) {
       const data = `detail-header-price-bar${counter}`;
 
-      priceBars.push(<span key={data.toString()} className={data}></span>);
+      priceBars.push(<span key={data} className={data}></span>);
     }
     return (
         priceBars
@@ -86,4 +93,4 @@ class DetailHeader extends Component {
   }
 }
 
-export default DetailHeader;
+export default VenueDetailHeader;

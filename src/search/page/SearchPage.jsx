@@ -1,10 +1,12 @@
 import React, {Component} from "react";
 import superagent from "superagent";
 import PropTypes from "prop-types";
+
 import SearchForm from "../form/SearchForm.jsx";
 import VenueCardList from "../list/VenueCardList.jsx";
 import RecentSearchList from "../list/RecentSearchList.jsx";
-import DetailPage from "../../detail/page/DetailPage.jsx";
+import VenueDetailPage from "../../detail/page/VenueDetailPage.jsx";
+
 import "./search-page.scss";
 
 const apiParams = {
@@ -121,7 +123,7 @@ class SearchPage extends Component {
         </div>
         <div>
           {
-              this.state.id && <DetailPage id={this.state.id}/>
+              this.state.id && <VenueDetailPage id={this.state.id}/>
           }
         </div>
       </div>

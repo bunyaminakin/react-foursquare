@@ -11,11 +11,10 @@ class VenueCard extends Component {
 
   imageSourceGeneration = (source) => {
     const SourceValue = source.venue.photos.groups[0].items[0];
-    const imgSrc = [];
+    const imgSrc = `${SourceValue.prefix}${SourceValue.width}x${SourceValue.height}${SourceValue.suffix}`;
 
-    imgSrc.push(SourceValue.prefix, SourceValue.width, "x", SourceValue.height, SourceValue.suffix);
     return (
-        imgSrc.join("").toString()
+        imgSrc
     );
   };
 
