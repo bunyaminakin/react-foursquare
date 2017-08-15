@@ -76,7 +76,7 @@ class VenueDetailHeader extends Component {
                 <div className="detail-header-venue-price">
                   <img className="detail-header-venue-price-logo" src={priceIcon}/>
                   <div className="detail-header-price-bar">
-                    {this.renderPriceBar(`${details.price.tier}`)}
+                    { details.price.tier === undefined ? this.renderPriceBars(0) : this.renderPriceBar(`${details.price.tier}`)}
                   </div>
                 </div>
                 <div className="detail-header-venue-rating">

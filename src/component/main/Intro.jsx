@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
+
 import "./intro.scss";
+
 import logo from "../../../img/logo.png";
 
 class Intro extends Component {

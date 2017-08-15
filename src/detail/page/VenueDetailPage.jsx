@@ -24,9 +24,10 @@ class VenueDetailPage extends Component {
     this.state = {
       details: [],
       photos: [],
-      tipList: []
+      tipList: [],
+      id: this.props.match.params.id
     };
-    this.handleClick(this.props.id);
+    this.handleClick(this.state.id);
   }
 
   componentWillReceiveProps(nextProps) {

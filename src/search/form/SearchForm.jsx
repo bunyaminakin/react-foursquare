@@ -8,17 +8,10 @@ class SearchForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: "",
-      location: ""
+      query: this.props.query,
+      location: this.props.location
     };
   }
-
-  onSubmit = (query, location) => {
-    this.setState({
-      query,
-      location
-    });
-  };
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -36,10 +29,9 @@ class SearchForm extends Component {
       location: e.target.value
     });
   };
-
   render() {
     return (
-      <form className="search-form" onSubmit={this.handleSubmit}>
+      <form className="search-form" type="submit" onSubmit={this.handleSubmit}>
         <img className="logo" src={logo} alt="Logo"/>
         <input onChange={this.handleChangeQuerySearchFilter}
                type="text"
@@ -49,7 +41,8 @@ class SearchForm extends Component {
                 type="text"
                 placeholder="Istanbul"
                 className="search-form-location-bar"/>
-        <button type="submit" className="submit-button"></button>
+        <button type="submit" className="submit-button">
+        </button>
       </form>
     );
   }

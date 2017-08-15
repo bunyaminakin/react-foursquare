@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import SearchForm from "../form/SearchForm.jsx";
 import VenueCardList from "../list/VenueCardList.jsx";
 import RecentSearchList from "../list/RecentSearchList.jsx";
-import VenueDetailPage from "../../detail/page/VenueDetailPage.jsx";
+import Footer from "../../component/main/Footer.jsx";
 
 import "./search-page.scss";
 
@@ -30,13 +30,27 @@ class SearchPage extends Component {
     };
   }
 
+  componentDidMount() {
+    const {query, location} = this.props.match.params;
+
+    if (query && location) {
+      this.getVenues(query, location);
+      this.updateRecentSearch(query, location);
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.match.params.query !== this.props.match.params.query ||
+        nextProps.match.params.location !== this.props.match.params.location) {
+      this.getVenues(nextProps.match.params.query, nextProps.match.params.location);
+      this.updateRecentSearch(nextProps.match.params.query, nextProps.match.params.location);
+    }
+  }
+
   handleFormSubmit = (query, location) => {
-    this.setState({
-      query,
-      location
-    });
-    this.getVenues(query, location);
-    this.updateRecentSearch(query, location);
+    if (query && location) {
+      this.props.history.push(`/query=${query}&location=${location}`);
+    }
   };
 
   updateRecentSearch = (query, location) => {
@@ -96,23 +110,22 @@ class SearchPage extends Component {
       });
   };
 
-  handleDetail = (venueID) => {
-    this.setState({
-      id: venueID
-    });
-  };
 
   render() {
+    const {query, location} = this.props.match.params;
+
     return (
       <div>
         <div className="search-page">
           <div className="search-page-form-container">
-            <SearchForm onSubmit={this.handleFormSubmit}/>
+            <SearchForm onSubmit={this.handleFormSubmit}
+                        query={query}
+                        location={location}/>
           </div>
           <div className="search-page-lists">
             <div className="search-page-venue-card-list">
               {
-              this.state.venues && <VenueCardList venue={this.state.venues} onClick={this.handleDetail}/>
+              this.state.venues && <VenueCardList venue={this.state.venues}/>
             }
             </div>
             <div className="search-page-recent-search-list">
@@ -121,11 +134,7 @@ class SearchPage extends Component {
             </div>
           </div>
         </div>
-        <div>
-          {
-              this.state.id && <VenueDetailPage id={this.state.id}/>
-          }
-        </div>
+        <Footer/>
       </div>
     );
   }
