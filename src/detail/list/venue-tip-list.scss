@@ -1,0 +1,167 @@
+.venue-tip-list-panel{
+  position: absolute;
+  top: -50px;
+
+  display: inline-block;
+
+  width: 290px;
+
+  background-color: #ffffff;
+
+  box-shadow: 0 0 34px 0 rgba(115, 95, 255, 0.32);
+  z-index: 99;
+}
+@media screen and (max-width: 1023px){
+  .venue-tip-list-panel {
+    position: relative;
+    top: 0;
+  }
+}
+.venue-tip-list-name{
+  position: relative;
+
+  text-align: center;
+
+  margin: 0;
+  padding: 39px;
+
+  color: #4a4a4a;
+
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Gotham;
+  &:after{
+    content: "";
+    position: absolute;
+    left:50%;
+    bottom: 0;
+
+    width: 70px;
+    height: 2px;
+
+    background-color: #c4c0ff;
+
+    transform: translate(-50%,0);
+  }
+}
+.venue-tips{
+  position: relative;
+
+  margin: 0 auto;
+  padding: 0;
+
+  list-style-type: none;
+}
+.venue-tip{
+  position: relative;
+  margin: 0 auto;
+  padding: 10px;
+  &:after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+
+    width: 90%;
+    height: 1px;
+
+    background-color: #e4e4e4;
+
+    transform:translate(-50%,0);
+  }
+}
+
+.venue-tip-user-detail{
+  position: relative;
+
+  display: inline-block;
+  vertical-align: middle;
+
+  width: 40px;
+  height: 40px;
+
+  margin: 20px;
+
+  transform: rotate(45deg);
+  overflow: hidden;
+}
+
+.venue-tip-user-image{
+  position: absolute;
+  left: 50%;
+  top:50%;
+  bottom:50%;
+  right: 50%;
+
+  display: inline-block;
+  vertical-align: middle;
+
+  width: 150%;
+  height: 150%;
+
+  transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+.venue-tip-user-name{
+  position: relative;
+
+  display: inline-block;
+  vertical-align: middle;
+
+  width: 155px;
+
+  padding-left: 10px;
+
+  color: #9b9b9b;
+
+  font-family: Gotham;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.venue-tip-text{
+  height: 18px;
+
+  margin: 0;
+  padding-left: 90px;
+
+  color: #9b9b9b;
+
+  font-size: 14px;
+  font-family: Gotham-Book;
+
+  overflow-y: auto;
+}
+.venue-tip-all{
+  padding: 43px 124px;
+}
+.venue-tip-link{
+  text-align: center;
+
+  color: #7a74d2;
+
+  font-family: Gotham;
+  font-size: 11px;
+  font-weight: 500;
+
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.venue-tips{
+  //positioning, top, bottom
+
+  //display vertical-align, align-items
+
+  //width, height, flex
+
+  //margin/padding
+
+  //color, border
+
+  //font/text
+
+  //other
+
+  //animation/transition
+}

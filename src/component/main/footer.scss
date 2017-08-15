@@ -1,0 +1,38 @@
+$footer-text-color:#9b9b9b;
+
+.footer{
+  position: relative;
+  margin: 8px 0;
+
+  .footer-links{
+    padding: 23px;
+    text-align: center;
+    background-color: #FFF;
+    &:after{
+      content: '';
+      position: absolute;
+      top:0;
+      left:50%;
+
+      width: 90%;
+      height: 2px;
+
+      background-color: #e4e4e4;
+
+      transform: translateX(-50%);
+    }
+  }
+
+  .footer-link{
+    display: inline-block;
+    text-align: center;
+
+    padding: 20px;
+
+    color: $footer-text-color;
+
+    font-family: Gotham;
+    font-size: 12px;
+    font-weight: 500;
+  }
+}
