@@ -22,12 +22,16 @@ class VenuePhotoList extends Component {
                         <div className="venue-photo-card">
                           <img className="venue-photo-card-background-image" src={
                                   `${photo.prefix}400x400${photo.suffix}`
-                              }/>
+                              }
+                          alt="Venue Background Photo"
+                          />
                           <div className="venue-photo-uplader">
                             <img className="venue-photo-uploader-image" src={
                                     `${photo.user.photo.prefix}100x100${
                                         photo.user.photo.suffix}`
-                                }/>
+                                }
+                            alt="User Photo"
+                            />
                           </div>
                           <span className="venue-photo-uploader-name">
                             {`${photo.user.firstName} ${photo.user.lastName}`}

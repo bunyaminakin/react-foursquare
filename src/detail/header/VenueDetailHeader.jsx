@@ -46,35 +46,45 @@ class VenueDetailHeader extends Component {
         {
             details && (
             <div>
-              <img className="detail-header-logo-image" src={logo}/>
-              <img className="detail-header-category-image" src={category}/>
+              <img className="detail-header-logo-image" src={logo} alt="Logo"/>
+              <img className="detail-header-category-image" src={category} alt="Category"/>
               <div className="detail-header-background">
-                <img className="detail-header-background-image" src={this.imageSourceGeneration(details)}/>
+                <img className="detail-header-background-image"
+                     src={this.imageSourceGeneration(details)}
+                alt="Background"/>
               </div>
               <h1 className="detail-header-venue-name">
                 {details.name}
               </h1>
               <div className="detail-header-venue-details">
                 <div className="detail-header-venue-address">
-                  <img className="detail-header-venue-address-logo" src={locationIcon}/>
+                  <img className="detail-header-venue-address-logo"
+                       src={locationIcon}
+                    alt="Location"/>
                   <span className="detail-header-venue-address-text">
                     {details.location.address}
                   </span>
                 </div>
                 <div className="detail-header-venue-phone">
-                  <img className="detail-header-venue-phone-logo" src={phoneIcon}/>
+                  <img className="detail-header-venue-phone-logo"
+                       src={phoneIcon}
+                    alt="Phone"/>
                   <span className="detail-header-venue-phone-text">
                     {details.contact.phone}
                   </span>
                 </div>
                 <div className="detail-header-venue-hereNow-count">
-                  <img className="detail-header-venue-hereNow-count-logo" src={hereNowIcon}/>
+                  <img className="detail-header-venue-hereNow-count-logo"
+                       src={hereNowIcon}
+                    alt="Here Now Count"/>
                   <span className="detail-header-venue-hereNow-count-text">
                     {details.beenHere.count}
                   </span>
                 </div>
                 <div className="detail-header-venue-price">
-                  <img className="detail-header-venue-price-logo" src={priceIcon}/>
+                  <img className="detail-header-venue-price-logo"
+                       src={priceIcon}
+                    alt="Price"/>
                   <div className="detail-header-price-bar">
                     { details.price.tier === undefined ? this.renderPriceBars(0) : this.renderPriceBar(`${details.price.tier}`)}
                   </div>
