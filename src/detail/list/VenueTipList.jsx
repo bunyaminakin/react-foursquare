@@ -28,7 +28,9 @@ class VenueTipList extends Component {
                           <div className="venue-tip-user-detail">
                             <img className="venue-tip-user-image" src={
                                     `${tipList[index].user.photo.prefix}100x100${tipList[index].user.photo.suffix}`
-                            }/>
+                            }
+                            alt="Profile Pic"
+                            />
                           </div>
                           <span className="venue-tip-user-name">
                             {`${tipList[index].user.firstName} ${tipList[index].user.lastName}`}
